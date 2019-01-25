@@ -15,7 +15,7 @@ body{
   font-family: 'Century Gothic',sans-serif;
 }
 .box-img {
-  /* border-radius: 50%; */
+   border-radius: 50%; 
 }
 
 
@@ -45,8 +45,8 @@ ul{
 }
 
 .box li a{
-  	-webkit-transition-duration: 0.4s; /* Safari */
-	transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
   color: white;
   text-decoration: none;
   font-size: 60px;
