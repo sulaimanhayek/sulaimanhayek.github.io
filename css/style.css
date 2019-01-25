@@ -45,12 +45,15 @@ ul{
 }
 
 .box li a{
+  	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
   color: white;
   text-decoration: none;
   font-size: 60px;
-  transition: all ease-in-out 250ms;
+ /* transition: all ease-in-out 250ms; */
 }
 
 .box li a:hover{
-  color: #b9b9b9;
+  /*color: #b9b9b9;*/
+  color: #c8c8c8;
 }
