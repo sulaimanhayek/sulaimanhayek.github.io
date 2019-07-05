@@ -1,14 +1,10 @@
 body{
   margin: 0;
   padding: 0;
-  /* background: url(../images/cover_50.jpg) no-repeat; */
-  /* background-size: cover; */
+  background: url(../images/cover_50.jpg) no-repeat;
+  background-size: cover;
 }
-#particles-js 
-{
-  height: 100%;
-  background: #000000;
-}
+
 .box{
   width: 450px;
   background: rgba(0, 0, 0, 0.4);
