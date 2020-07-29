@@ -1,61 +1,8 @@
-body{
+
+
+
+html, body { 
   margin: 0;
   padding: 0;
-  background: url(../images/cover_50.jpg) no-repeat;
-  background-size: cover;
-}
-
-.box{
-  width: 450px;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 40px;
-  text-align: center;
-  margin: auto;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  color: white;
-  font-family: 'Century Gothic',sans-serif;
-}
-.box-img {
-   border-radius: 50%; 
-}
-
-
-.box h1{
-  font-size: 40px;
-  letter-spacing: 8px;
-  font-weight: 100;
-}
-.box h5{
-  font-size: 20px;
-  letter-spacing: 4px;
-  font-weight: 100;
-}
-.box p{
-  text-align: justify;
-}
-
-ul{
-  margin: 0;
-  padding: 0;
-}
-
-.box li{
-  display: inline-block;
-  margin: 6px;
-  list-style: none;
-}
-
-.box li a{
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
-  color: white;
-  text-decoration: none;
-  font-size: 60px;
- /* transition: all ease-in-out 250ms; */
-}
-
-.box li a:hover{
-  /*color: #b9b9b9;*/
-  color: #c8c8c8;
+  
 }
