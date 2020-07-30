@@ -32,10 +32,13 @@ ul{
 
 h1,h2,h3,h4,h5,h6, strong { 
   color: var(--mainText);
+  font-family: 'Russo One' , sans-serif;
+  font-weight: 100;
 }
 
 p,li, span,label, input, textarea{
 color: var(--secondaryText);
+font-family: 'Roboto Mono', monospace;
 }
 
 .s1{
@@ -48,4 +51,14 @@ overflow: auto;
   background-color: var(--secondary-color);
   border-bottom:1px solid var(--border-color);
   overflow: auto;
+}
+.main-container{
+width: 1200px;
+margin: 0 auto;
+}
+
+@media screen and (max-width: 1200px){
+  .main-container{
+    width: 95%;
+  }
 }
