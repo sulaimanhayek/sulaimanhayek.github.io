@@ -71,21 +71,31 @@ margin: 0 auto;
   border-radius: 20px;
   box-shadow: 20px 20px 60px #d9d9d9,
   -20px -20px 60px #ffffff;
+  display: grid;
+  /* set a template for two columns (two fractions) */
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 3em 30em;
+  /* applying the template on the currenct areas we have
+  first we want the nav-wrapper to take all the column space 
+  so we repeat this area, but then we want to divide the left and right columns in between */
+  grid-template-areas: 'nav-wrapper nav-wrapper' 'left-column right-column';
+
 }
 
 .nav-wrapper {
    border: 1px solid var(--border-color);
- 
+  grid-area: nav-wrapper;
 }
 
 .left-column {
   border: 1px solid var(--border-color);
+  grid-area: left-column;
 
 }
 
 .right-column {
   border: 1px solid var(--border-color);
-
+  grid-area: right-column;
 }
 
 @media screen and (max-width: 1200px){
