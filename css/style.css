@@ -1,6 +1,7 @@
 :root{
   --main-color: #eaeaea;
   --secondary-color: #f1f3f6;
+  --aliceblue-color: #ffffff;
   --border-color: #c1c1c1;
   --mainText: black;
   --secondaryText: #4b5156;
@@ -42,7 +43,7 @@ font-family: 'Roboto Mono', monospace;
 }
 
 .s1{
-background-color: var(--main-color);
+background-color: var(--secondary-color);
 border-bottom:1px solid var(--border-color);
 overflow: auto;
 }
@@ -79,7 +80,7 @@ margin: 0 auto;
   display: grid;
   /* set a template for two columns (two fractions) */
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 3em 30em;
+  grid-template-rows: 2.5em 30em;
   /* applying the template on the currenct areas we have
   first we want the nav-wrapper to take all the column space 
   so we repeat this area, but then we want to divide the left and right columns in between */
@@ -91,6 +92,29 @@ margin: 0 auto;
   grid-area: nav-wrapper;
   border-bottom: 1px solid var(--border-color);
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dots-wrapper{
+display: flex;
+padding-left: 10px;
+}
+.browser-dot{
+height: 15px;
+width: 15px;
+border-radius: 50%;
+margin: 5px;
+}
+
+#dot-1{
+  background-color: #fc6058;
+}
+#dot-2{
+  background-color: #fec02f;
+}
+#dot-3{
+  background-color: #2aca3e;
 }
 
 .left-column {
@@ -100,6 +124,7 @@ margin: 0 auto;
 
 .right-column {
   grid-area: right-column;
+
 }
 
 @media screen and (max-width: 1100px){
