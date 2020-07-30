@@ -24,10 +24,12 @@ color: var(--secondaryText);
 
 .s1{
 background-color: var(--main-color);
-border-bottom: var(--border-color);
+border-bottom:1px solid var(--border-color);
+overflow: auto;
 }
 
 .s2{
   background-color: var(--secondary-color);
-  border-bottom: var(--border-color);
+  border-bottom:1px solid var(--border-color);
+  overflow: auto;
 }
