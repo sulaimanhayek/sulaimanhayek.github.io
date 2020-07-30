@@ -1,6 +1,6 @@
 :root{
   --main-color: #eaeaea;
-  --secondary-color: #fff;
+  --secondary-color: #f1f3f6;
   --border-color: #c1c1c1;
   --mainText: black;
   --secondaryText: #4b5156;
@@ -53,7 +53,7 @@ overflow: auto;
   overflow: auto;
 }
 .main-container{
-width: 1100px;
+width: 1000px;
 margin: 0 auto;
 }
 
@@ -69,8 +69,13 @@ margin: 0 auto;
   background-color: var(--secondary-color);
   /* border: 1px solid var(--border-color); */
   border-radius: 20px 20px 0 0 ;
-  box-shadow: 20px 20px 60px #d9d9d9,
-  -20px -20px 60px #ffffff;
+  /* box-shadow: 20px 20px 60px #d9d9d9,
+  -20px -20px 60px #ffffff; */
+   box-shadow: inset 0 0 15px rgba(55, 84, 170, 0),
+   inset 0 0 20px rgba(255, 255, 255, 0),
+   7px 7px 15px rgba(55, 84, 170, 0.15),
+   -7px -7px 20px white,
+   inset 0px 0px 4px rgba(255, 255, 255, 0.2);
   display: grid;
   /* set a template for two columns (two fractions) */
   grid-template-columns: 1fr 1fr;
