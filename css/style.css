@@ -5,6 +5,7 @@
   --border-color: #c1c1c1;
   --mainText: black;
   --secondaryText: #4b5156;
+  --tooltip-color:#c1c1c1;
 
 }
 
@@ -141,6 +142,39 @@ border-radius: 50%;
 margin: 5px;
 }
 
+.dots-menu .tooltiptext {
+  visibility: hidden;
+   width: 120px;
+   background-color: var(--tooltip-color);
+   opacity: 0;
+   color: #fff;
+   text-align: center;
+   border-radius: 6px;
+   padding: 5px 0;
+   position: absolute;
+   z-index: 1;
+   top: 15%;
+   right: 7%;
+  
+}
+/* .dots-menu .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+} */
+
+.dots-menu:hover .tooltiptext {
+  visibility: visible;
+  opacity: 90%;
+   transition: opacity 0.5s;
+
+}
+
 #dot-1{
   background-color: #fc6058;
 }
@@ -165,4 +199,8 @@ margin: 5px;
   .main-container{
     width: 95%;
   }
+  .tooltiptext {
+    display: none;
+  }
 }
+
