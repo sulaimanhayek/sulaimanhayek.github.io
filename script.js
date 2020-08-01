@@ -1,7 +1,16 @@
 
 
 
-
+// toggle the calendar
+function myFunction() {
+    var x = document.getElementsById("stats");
+    if (x.style.display === "none") {
+        x.style.display === "block";
+    }
+    else {
+        x.style.display === "block";
+    }
+}
 
 
 // dropdown button functionality is disabled for now as its not neede in the design

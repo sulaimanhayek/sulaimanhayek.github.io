@@ -102,6 +102,7 @@ margin: 0 auto;
       justify-content: space-between;
     justify-content: center;
     text-align: center;
+    
 }
 
 .vue-cal {
@@ -170,6 +171,11 @@ margin: 5px;
    right: 20%;
   
 }
+
+.calendar {
+  width: 100%;
+}
+
 /* .dots-menu .tooltiptext::after {
   content: "";
   position: absolute;
@@ -224,10 +230,14 @@ object-fit: cover;
   padding-top: 30px;
 }
 #preview {
-  width: 300px;
-  border: 1.5px dashed var(--border-color);
+  width: 330px;
+  /* border: 1.5px dashed var(--border-color); */
   padding: 15px;
   position: relative;
+border-radius: 15px;
+background: #F1F3F6;
+box-shadow: inset 5px 5px 10px #d9dbdd,
+inset -5px -5px 10px #ffffff;
 }
 .dropbtn {
   border: none;
@@ -279,6 +289,7 @@ object-fit: cover;
   .tooltiptext {
     display: none;
   }
+  
 }
 @media screen and (max-width: 800px) {
   .intro-wrapper {
@@ -287,7 +298,11 @@ object-fit: cover;
       'nav-wrapper'
       'left-column'
       'right-column'
+      'stats'
     ;
+  }
+  .stats{
+    padding-top: 100px;
   }
 
   .right-column {
@@ -308,6 +323,8 @@ object-fit: cover;
     width: 280px;
 
   }
+
+
 
 }
 
