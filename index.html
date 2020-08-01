@@ -11,6 +11,110 @@
 		<link rel="stylesheet" href="css/style.css">
 		<title>Sulaiman</title>
 	</head>
+	<style>
+		/* 3d */
+
+        #wrapper {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          perspective: 1500px;
+        }
+
+        .box-area {
+          position: relative;
+          transform-style: preserve-3d;
+          animation-name: rotate;
+          animation-duration: 30s;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+        }
+
+        @keyframes rotate {
+          0% {
+            transform: rotate3d(0, 0, 0, 0);
+          }
+
+          100% {
+            transform: rotate3d(0, 1, 0, 360deg);
+            ;
+          }
+        }
+
+        .box {
+          position: absolute;
+          width: 160px;
+          height: 160px;
+          border: 2px solid #262626;
+        }
+
+        .img {
+          width: 150px;
+          height: 150px;
+          object-fit: cover;
+          opacity: 0.8;
+          margin: 5px
+        }
+
+        .img-java {
+          width: 160px;
+          height: 160px;
+          object-fit: fill;
+          opacity: 0.8;
+        }
+
+        .img-js {
+          width: 160px;
+          height: 160px;
+          object-fit: cover;
+          opacity: 0.8;
+          transform: scaleX(-1);
+        }
+
+        .img-c {
+          width: 150px;
+          height: 150px;
+          opacity: 0.8;
+          object-fit: cover;
+          margin: 5px;
+          transform: scaleX(-1);
+        }
+
+
+        #box-front {
+          transform: translateX(-100px) translateY(-100px) translateZ(100px);
+          background: rgba(246, 249, 252, 0.5);
+          display: block;
+          text-align: center;
+
+        }
+
+        .texting {
+          position: block;
+          justify-content: center;
+          align-items: center;
+
+        }
+
+        #box-back {
+          transform: translateX(-100px) translateY(-100px) translateZ(-100px);
+          background: rgba(246, 249, 252, 0.5);
+        }
+
+        #box-right {
+          transform: translateY(-100px) rotateY(90deg);
+          background: rgba(246, 249, 252, 0.5);
+        }
+
+        #box-left {
+          transform: translateY(-100px) translateX(-200px) rotateY(90deg);
+          background: rgba(246, 249, 252, 0.5);
+        }
+        .box-area {
+  transform: rotateX(90deg) rotateY(90deg);
+}
+
+	</style>
 	<body>
 		<section class="s1">
 			<div class="main-container">
@@ -25,7 +129,7 @@
 							<div id="dot-3" class="browser-dot"></div>
 						</div>
 						<div class="dots-menu">
-						
+
 							<div class="toggle-btn" id="_1st-toggle-btn">
 								<input type="checkbox">
 								<span></span>
@@ -36,11 +140,25 @@
 					<div class="left-column">
 						<img id="profile" src="images/sulaiman pic.jpg" alt="">
 					</div>
-					<div class="right-column">
-						right-column
+					<div class="righ-column">
+						<div id="wrapper">
+							<div class="box-area">
+								<div id="box-front" class="box">
+									<img class="img" src="images/c-sharp.png">
+								</div>
+								<div id="box-right" class="box">
+									<img class="img-java" src="images/java.png">
+								</div>
+								<div id="box-back" class="box">
+									<img class="img-c" src="images/c++.png"></img>
+							</div>
+							<div id="box-left" class="box">
+								<img class="img-js" src="images/js.png">
+							</div>
+						</div>
 					</div>
-				</div>
 
+				</div>
 			</div>
 		</section>
 		<section class="s2">
