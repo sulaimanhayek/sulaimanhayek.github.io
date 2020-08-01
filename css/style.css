@@ -102,7 +102,17 @@ margin: 0 auto;
       justify-content: space-between;
     justify-content: center;
     text-align: center;
+    margin-bottom: 20px;
     
+    
+}
+
+.stats .neu {
+   border-radius: 2px;
+   background: #F1F3F6;
+   box-shadow: 5px 5px 10px #d9dbdd,
+   -5px -5px 10px #ffffff;
+ 
 }
 
 .vue-cal {
@@ -219,6 +229,54 @@ height: 150px;
 object-fit: cover;
 }
 
+.social {
+  display: flex;
+   justify-content: space-evenly;
+
+   align-items: center;
+  margin-top: 70px;
+  /* margin-left: 20px; */
+}
+
+.social-logos {
+  height: 60px;
+  width: 60px;
+  border-radius: 15px;
+  background: #F1F3F6;
+  box-shadow: 5px 5px 10px #d9dbdd,
+  -5px -5px 10px #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+      -webkit-transition-duration: 0.4s;
+      /* Safari */
+      transition-duration: 0.4s;
+
+  
+
+}
+.social-logos a{ 
+  
+    color: black;
+    opacity: 0.5;
+    text-decoration: none;
+    font-size: 35px;
+}
+
+.social-logos:hover {
+ height: 60px;
+ width: 60px;
+border-radius: 15px;
+background: #F1F3F6;
+box-shadow: inset 5px 5px 10px #d9dbdd,
+inset -5px -5px 10px #ffffff;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+
+
+}
+
 .right-column {
   grid-area: right-column;
   padding-top: 15px;
@@ -323,7 +381,14 @@ inset -5px -5px 10px #ffffff;
     width: 280px;
 
   }
-
+  .social-logos { 
+    width: 45px;
+    height: 45px;
+  }
+.social-logos:hover {
+  width: 45px;
+  height: 45px;
+}
 
 
 }
