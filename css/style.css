@@ -9,6 +9,16 @@
   --tooltip-color:#c1c1c1;
 
 }
+[data-theme="dark"] {
+   --main-color: black;
+   --second-section-color: black;
+   --secondary-color: grey;
+   --aliceblue-color: black;
+   --border-color: grey;
+   --mainText: white;
+   --secondaryText: white;
+   --tooltip-color:grey;
+}
 
 
 html, body { 
@@ -47,6 +57,14 @@ p{
   text-align: justify;
 }
 
+.theme-switch{
+   position: absolute !important;
+   height: 1px;
+   width: 1px;
+   overflow: hidden;
+   clip: rect(1px, 1px, 1px, 1px);
+
+}
 .s1{
 background-color: var(--secondary-color);
 border-bottom:1px solid var(--border-color);
