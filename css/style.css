@@ -43,6 +43,9 @@ p,li, span,label, input, textarea{
 color: var(--secondaryText);
 font-family: 'Roboto Mono', monospace;
 }
+p{
+  text-align: justify;
+}
 
 .s1{
 background-color: var(--secondary-color);
@@ -62,8 +65,14 @@ margin: 0 auto;
 .about-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  padding-bottom: 50px;
+  padding-bottom: 2px;
   padding-top: 50px;
+  gap: 100px;
+}
+.expertise-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  padding-bottom: 50px;
   gap: 100px;
 }
 #skills {
@@ -75,6 +84,12 @@ margin: 0 auto;
 .social-links {
   display: grid;
   align-content: center;
+  text-align: center;
+}
+.contact-links {
+  display: flex;
+  margin-top: 30px;
+  justify-content: center;
   text-align: center;
 }
 
