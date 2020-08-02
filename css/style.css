@@ -441,7 +441,12 @@ inset -5px -5px 10px #ffffff;
   width: 45px;
   height: 45px;
 }
-
+.expertise-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  padding-top: 50px;
+  gap: 100px;
+}
 
 }
 
