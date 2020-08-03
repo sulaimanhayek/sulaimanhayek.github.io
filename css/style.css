@@ -4,6 +4,8 @@
   --text-color: #324052;
   --border-color: #c1c1c1;
   --secondary-color: #f1f3f6;
+  --shadow-one:#d9dbdd;
+  --shadow-two:#ffffff;
   --color-cardOne: rgba(55, 84, 170, 0);
   --color-cardTwo: rgba(255, 255, 255, 0);
   --color-cardThree: rgba(55, 84, 170, 0.15);
@@ -21,6 +23,8 @@
     --text-color: #f1f3f6;
   --secondary-color: #293442;
   --border-color:#475566;
+  --shadow-one:#232c38;
+  --shadow-two:#2f3c4c;
   --color-cardOne: rgba(55, 84, 170, 0);
   --color-cardTwo: rgba(0, 0, 0, 0);
   --color-cardThree: #2f3c4c;
@@ -87,7 +91,7 @@ span,
 label,
 input,
 textarea {
-  color: var(--secondaryText);
+  color: var(--text-color);
   font-family: 'Roboto Mono', monospace;
 }
 
@@ -392,9 +396,9 @@ p {
   padding: 25px;
   position: relative;
   border-radius: 15px;
-  background: #F1F3F6;
-  box-shadow: inset 5px 5px 10px #d9dbdd,
-    inset -5px -5px 10px #ffffff;
+  background: var(--secondary-color);
+  box-shadow: inset 5px 5px 10px var(--shadow-one),
+    inset -5px -5px 10px var(--shadow-two);
 }
 
 .dropbtn {
