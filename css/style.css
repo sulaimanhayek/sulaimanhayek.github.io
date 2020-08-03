@@ -159,7 +159,6 @@ p {
   display: grid;
   text-align: center;
   align-content: center;
-  border: 2px dashed lightcoral;
   min-height: 10em;
 }
 
