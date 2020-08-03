@@ -1,24 +1,31 @@
 :root {
   --main-color: #eaeaea;
   --second-section-color: #ffffff;
-  --secondary-color: #f1f3f6;
-  --aliceblue-color: #ffffff;
+  --text-color: #324052;
   --border-color: #c1c1c1;
-  --mainText: black;
-  --secondaryText: #4b5156;
-  --tooltip-color: #c1c1c1;
+  --secondary-color: #f1f3f6;
+  --color-cardOne: rgba(55, 84, 170, 0);
+  --color-cardTwo: rgba(255, 255, 255, 0);
+  --color-cardThree: rgba(55, 84, 170, 0.15);
+  --color-cardFour: white;
+  --color-cardFive: rgba(255, 255, 255, 0.2);
+
+
+  
 
 }
 
 [data-theme="dark"] {
-  --main-color: black;
+  --main-color: #324052;
   --second-section-color: black;
-  --secondary-color: grey;
-  --aliceblue-color: black;
-  --border-color: grey;
-  --mainText: white;
-  --secondaryText: white;
-  --tooltip-color: grey;
+    --text-color: #f1f3f6;
+  --secondary-color: #293442;
+  --border-color:#475566;
+  --color-cardOne: rgba(55, 84, 170, 0);
+  --color-cardTwo: rgba(0, 0, 0, 0);
+  --color-cardThree: #2f3c4c;
+  --color-cardFour: #232c38;
+  --color-cardFive: #2f3c4c;
 }
 
 
@@ -69,7 +76,7 @@ h4,
 h5,
 h6,
 strong {
-  color: var(--mainText);
+  color: var(--text-color);
   font-family: 'Russo One', sans-serif;
   font-weight: 100;
 }
@@ -91,7 +98,7 @@ p {
 
 .s1 {
   background-color: var(--secondary-color);
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid #eaeaea;
   overflow: auto;
 }
 
@@ -156,11 +163,11 @@ p {
   background-color: var(--secondary-color);
   border-radius: 20px 20px 0 0;
 
-  box-shadow: inset 0 0 15px rgba(55, 84, 170, 0),
-    inset 0 0 20px rgba(255, 255, 255, 0),
-    7px 7px 15px rgba(55, 84, 170, 0.15),
-    -7px -7px 20px white,
-    inset 0px 0px 4px rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 0 15px var(--color-cardOne),
+    inset 0 0 20px var(--color-cardTwo),
+    7px 7px 15px var(--color-cardThree),
+    -7px -7px 20px var(--color-cardFour),
+    inset 0px 0px 4px var(--color-cardFive);
   display: grid;
   /* set a template for two columns (two fractions) */
   grid-template-columns: 1fr 1fr;
