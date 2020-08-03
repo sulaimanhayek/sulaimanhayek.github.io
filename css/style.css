@@ -198,15 +198,22 @@ p {
   justify-content: center;
   text-align: center;
   margin-bottom: 20px;
+  color: var(--text-color);
 
 
+}
+.contrib-number { 
+  color: var(--text-color) !important;
+}
+#stats .calendar div{
+  border: none !important;
 }
 
 .stats .neu {
   border-radius: 2px;
-  background: #F1F3F6;
-  box-shadow: 5px 5px 10px #d9dbdd,
-    -5px -5px 10px #ffffff;
+  background: var(--secondary-color);
+  box-shadow: 5px 5px 10px var(--shadow-one),
+    -5px -5px 10px var(--shadow-two);
 
 }
 
@@ -344,9 +351,9 @@ p {
   height: 60px;
   width: 60px;
   border-radius: 15px;
-  background: #F1F3F6;
-  box-shadow: 5px 5px 10px #d9dbdd,
-    -5px -5px 10px #ffffff;
+  background: var(--secondary-color);
+  box-shadow: 5px 5px 10px var(--shadow-one),
+    -5px -5px 10px var(--shadow-two);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -360,7 +367,7 @@ p {
 
 .social-logos a {
 
-  color: black;
+  color: var(--text-color);
   opacity: 0.5;
   text-decoration: none;
   font-size: 35px;
