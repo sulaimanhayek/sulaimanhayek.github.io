@@ -329,11 +329,11 @@ p {
 }
 
 #profile {
-  border-radius: 15px;
+  border-radius: 10px;
   display: block;
   margin: 0 auto;
   width: 150px;
-  height: 150px;
+  height: 160px;
   object-fit: cover;
 }
 
