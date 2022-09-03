@@ -672,3 +672,29 @@ input[type="checkbox"] {
 }
 
 /*  toggle btn completed */
+
+/* Language style */
+
+.button_lang {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.25em 0em;
+  border-radius: 10px;
+  width: 5em;
+  transition: 0.25s ease;
+}
+
+.button_lang:hover {
+  background: #b5d6b2;
+  transition: 0.25s ease;
+}
+
+.current_lang {
+  background: #b5d6b2;
+}
+
+.translation {
+  text-align: center;
+  margin: 0.5em;
+}
+
