@@ -11,6 +11,7 @@
 		<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap"
 			rel="stylesheet">
 		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/interactive.css">
 		<!-- Include the library. -->
 		<script
 			src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
@@ -147,12 +148,16 @@
 				<div class="greeting-wrapper">
 					<h2 class="english" id="trans-header">Hey, I'm Suli</h2>
 				</div>
-				<div class="intro-wrapper">
+				<div class="window-stage" id="window-stage">
+				<div class="intro-wrapper" id="mac-window">
 					<div class="nav-wrapper">
 						<div class="dots-wrapper">
-							<div id="dot-1" class="browser-dot"></div>
-							<div id="dot-2" class="browser-dot"></div>
-							<div id="dot-3" class="browser-dot"></div>
+							<div id="dot-1" class="browser-dot" data-window-action="close"
+								role="button" tabindex="0" aria-label="Close window"></div>
+							<div id="dot-2" class="browser-dot" data-window-action="minimize"
+								role="button" tabindex="0" aria-label="Minimise window"></div>
+							<div id="dot-3" class="browser-dot" data-window-action="fullscreen"
+								role="button" tabindex="0" aria-label="Toggle fullscreen"></div>
 						</div>
 						 <!-- <table class="lang">
 							<tr>
@@ -221,6 +226,13 @@
 						</div>
 					</div> -->
 
+				</div>
+				</div>
+
+				<div class="dock" id="dock">
+					<button class="dock-item" type="button" aria-label="Reopen window">
+						<img src="images/profile_1_1.jpg" alt="Sulaiman">
+					</button>
 				</div>
 
 
@@ -334,6 +346,7 @@
 		</section>
 	</body>
 	<script src="script.js"></script>
+	<script src="interactive.js"></script>
 	<script>
 
 	

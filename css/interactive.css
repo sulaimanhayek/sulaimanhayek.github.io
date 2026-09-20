@@ -1,0 +1,119 @@
+/* Mac-style window controls: close / minimise / fullscreen + dock */
+
+.window-stage {
+  /* min-height is set by JS while the window is hidden or fullscreen,
+     so the section keeps its size and shows the plain background. */
+  display: block;
+}
+
+#mac-window {
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0s;
+}
+
+#mac-window.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition-delay: 0s, 0s, 0.35s;
+}
+
+#mac-window.is-closed {
+  transform: scale(0.94);
+}
+
+#mac-window.is-minimized {
+  transform-origin: 50% 100%;
+  transform: scale(0.25) translateY(40%);
+}
+
+#mac-window.is-fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  margin: 0;
+  border-radius: 0;
+  overflow: auto;
+  align-content: start;
+  padding: 0 max(16px, calc((100vw - 1000px) / 2));
+}
+
+body.window-fullscreen {
+  overflow: hidden;
+}
+
+/* Traffic lights */
+
+.browser-dot {
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.browser-dot:hover {
+  transform: scale(1.15);
+  filter: brightness(1.1);
+}
+
+.browser-dot:focus-visible {
+  outline: 2px solid var(--text-color);
+  outline-offset: 2px;
+}
+
+/* Dock */
+
+.dock {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  z-index: 1000;
+  display: flex;
+  gap: 10px;
+  padding: 8px;
+  border-radius: 18px;
+  background: var(--secondary-color);
+  box-shadow: 7px 7px 15px var(--color-cardThree),
+    -7px -7px 20px var(--color-cardFour);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate(-50%, 150%);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.3, 1),
+    opacity 0.25s ease, visibility 0s 0.35s;
+}
+
+.dock.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+  transition-delay: 0s, 0s, 0s;
+}
+
+.dock-item {
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.dock-item img {
+  display: block;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.dock-item:hover img,
+.dock-item:focus-visible img {
+  transform: translateY(-8px) scale(1.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #mac-window,
+  .dock,
+  .dock-item img,
+  .browser-dot {
+    transition-duration: 0.01ms;
+  }
+}
