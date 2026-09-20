@@ -46,12 +46,18 @@
     if (reverse) win.classList.add('is-restoring');
   }
 
+  // Only the newest animation gets to finish: reopening a half-hidden window
+  // would otherwise let the hide's callback come back and stow it again.
+  let pending = null;
   function onceAnimated(done) {
-    win.addEventListener('animationend', function end(event) {
+    if (pending) win.removeEventListener('animationend', pending);
+    pending = (event) => {
       if (event.target !== win) return;
-      win.removeEventListener('animationend', end);
+      win.removeEventListener('animationend', pending);
+      pending = null;
       done();
-    });
+    };
+    win.addEventListener('animationend', pending);
   }
 
   function setFullscreen(on) {
@@ -86,16 +92,25 @@
     hiddenAs = null;
 
     win.style.display = '';
-    if (mode === 'minimize') aimAtDock();
     dock.classList.remove('is-open');
-    stage.style.height = `${restingHeight}px`;
 
-    play(mode === 'minimize' ? 'is-minimizing' : 'is-closing', true);
-    onceAnimated(() => {
+    const settle = () => {
       attach();
       stage.classList.remove('is-collapsing');
       stage.style.height = '';
-    });
+    };
+
+    // Below the breakpoint there is no dock to fly out of, so the window just
+    // takes its place again.
+    if (!desktop.matches) {
+      settle();
+      return;
+    }
+
+    if (mode === 'minimize') aimAtDock();
+    stage.style.height = `${restingHeight}px`;
+    play(mode === 'minimize' ? 'is-minimizing' : 'is-closing', true);
+    onceAnimated(settle);
   }
 
   const actions = {
@@ -118,20 +133,20 @@
 
   dockIcon.addEventListener('click', restore);
 
-  desktop.addEventListener('change', (event) => {
-    if (event.matches) return;
-    setFullscreen(false);
-    restore();
-  });
-
   document.addEventListener('keydown', (event) => {
     if (event.key !== 'Escape') return;
     if (isFullscreen()) setFullscreen(false);
     else restore();
   });
 
-  // A pinned height only matches the layout it was measured in.
   window.addEventListener('resize', () => {
-    if (!hiddenAs && !isFullscreen()) stage.style.height = '';
+    // Shrinking past the breakpoint takes the controls away, so hand the
+    // window back rather than leave it stranded with no dock to reopen it.
+    if (!desktop.matches) {
+      setFullscreen(false);
+      restore();
+    } else if (!hiddenAs && !isFullscreen()) {
+      stage.style.height = ''; // a pinned height only fits the layout it was measured in
+    }
   });
 })();
