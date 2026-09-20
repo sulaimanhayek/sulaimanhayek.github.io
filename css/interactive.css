@@ -1,0 +1,234 @@
+/* Mac-style window controls: close / minimise / fullscreen + dock */
+
+.window-stage {
+  /* JS drives the height: it collapses to 0 while the window is hidden, so the
+     sections below slide up, and is pinned while the window is fullscreen. */
+  transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.window-stage.is-collapsing {
+  overflow: hidden;
+}
+
+/* While hiding, the window is pinned to its on-screen box so it can fly into
+   the dock independently of the page collapsing behind it. */
+#mac-window.is-detached {
+  position: fixed;
+  z-index: 800;
+  margin: 0;
+  pointer-events: none;
+}
+
+#mac-window.is-minimizing {
+  animation: window-genie 0.55s cubic-bezier(0.36, 0.06, 0.6, 1) forwards;
+}
+
+#mac-window.is-closing {
+  animation: window-close 0.3s ease forwards;
+}
+
+#mac-window.is-restoring {
+  animation-direction: reverse;
+}
+
+/* Scaled about the dock icon, so the window is sucked into it. The horizontal
+   squeeze runs ahead of the vertical one, which gives the genie pull. */
+@keyframes window-genie {
+  0% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+  55% {
+    transform: scale(0.34, 0.72);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.04, 0.05);
+    opacity: 0;
+  }
+}
+
+@keyframes window-close {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.94);
+    opacity: 0;
+  }
+}
+
+/* Fullscreen: the card fills the screen on its own, and its contents are
+   sized against the viewport height so nothing needs to scroll. */
+
+#mac-window.is-fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  margin: 0;
+  border-radius: 0;
+  overflow: hidden;
+  grid-template-rows: 2.5em 1fr;
+  padding: 0 max(16px, calc((100vw - 1000px) / 2));
+}
+
+#mac-window.is-fullscreen .left-column,
+#mac-window.is-fullscreen .right-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  padding: clamp(8px, 3vh, 40px) 0;
+}
+
+#mac-window.is-fullscreen #profile {
+  width: clamp(100px, 22vh, 260px);
+  height: clamp(115px, 26vh, 300px);
+}
+
+#mac-window.is-fullscreen .social {
+  width: 100%;
+  margin-top: clamp(16px, 6vh, 70px);
+  padding-left: 0;
+}
+
+#mac-window.is-fullscreen .social-logos {
+  height: clamp(40px, 9vh, 76px);
+  width: clamp(40px, 9vh, 76px);
+}
+
+#mac-window.is-fullscreen .social-logos a {
+  font-size: clamp(20px, 5vh, 42px);
+}
+
+#mac-window.is-fullscreen #preview-shadow {
+  width: 100%;
+  padding-top: 0;
+}
+
+#mac-window.is-fullscreen #preview {
+  box-sizing: border-box;
+  width: min(460px, 100%);
+  margin: 0 auto;
+  padding: clamp(14px, 3vh, 32px);
+}
+
+#mac-window.is-fullscreen #preview h3 {
+  font-size: clamp(22px, 4vh, 34px);
+}
+
+#mac-window.is-fullscreen #preview p {
+  font-size: clamp(14px, 2vh, 19px);
+}
+
+body.window-fullscreen {
+  overflow: hidden;
+}
+
+/* Traffic lights */
+
+.browser-dot {
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.browser-dot:hover {
+  transform: scale(1.15);
+  filter: brightness(1.1);
+}
+
+.browser-dot:focus-visible {
+  outline: 2px solid var(--text-color);
+  outline-offset: 2px;
+}
+
+/* Dock — it only fades, so its resting box is always measurable as the
+   genie target. */
+
+.dock {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  z-index: 1000;
+  display: flex;
+  gap: 10px;
+  padding: 8px;
+  border-radius: 18px;
+  background: var(--secondary-color);
+  box-shadow: 7px 7px 15px var(--color-cardThree),
+    -7px -7px 20px var(--color-cardFour);
+  transform: translateX(-50%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0s 0.3s;
+}
+
+.dock.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition-delay: 0s, 0s;
+}
+
+.dock-item {
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.dock-item img {
+  display: block;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.dock.is-open .dock-item img {
+  animation: dock-pop 0.35s 0.3s backwards cubic-bezier(0.3, 1.4, 0.5, 1);
+}
+
+@keyframes dock-pop {
+  from {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+}
+
+.dock-item:hover img,
+.dock-item:focus-visible img {
+  transform: translateY(-8px) scale(1.08);
+}
+
+/* Below iPad mini the controls are inert, so the dock never appears. */
+
+@media (max-width: 767px) {
+  .dock {
+    display: none;
+  }
+
+  .browser-dot {
+    cursor: default;
+  }
+
+  .browser-dot:hover {
+    transform: none;
+    filter: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #mac-window,
+  .window-stage,
+  .dock,
+  .dock-item img,
+  .browser-dot {
+    animation-duration: 0.01ms;
+    transition-duration: 0.01ms;
+  }
+}
