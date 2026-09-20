@@ -6,6 +6,9 @@
   if (!win || !stage || !dock) return;
 
   const dockIcon = dock.querySelector('.dock-item');
+  // Window controls are for iPad mini and up; below that the page is a
+  // single column and there is nothing to minimise into.
+  const desktop = window.matchMedia('(min-width: 768px)');
   let hiddenAs = null; // 'minimize' | 'close' | null
   let restingHeight = 0;
 
@@ -102,7 +105,8 @@
   };
 
   win.querySelectorAll('[data-window-action]').forEach((dot) => {
-    const run = actions[dot.dataset.windowAction];
+    const action = actions[dot.dataset.windowAction];
+    const run = () => { if (desktop.matches) action(); };
     dot.addEventListener('click', run);
     dot.addEventListener('keydown', (event) => {
       if (event.key === 'Enter' || event.key === ' ') {
@@ -113,6 +117,12 @@
   });
 
   dockIcon.addEventListener('click', restore);
+
+  desktop.addEventListener('change', (event) => {
+    if (event.matches) return;
+    setFullscreen(false);
+    restore();
+  });
 
   document.addEventListener('keydown', (event) => {
     if (event.key !== 'Escape') return;

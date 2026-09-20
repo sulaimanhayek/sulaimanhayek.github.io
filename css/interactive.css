@@ -205,6 +205,23 @@ body.window-fullscreen {
   transform: translateY(-8px) scale(1.08);
 }
 
+/* Below iPad mini the controls are inert, so the dock never appears. */
+
+@media (max-width: 767px) {
+  .dock {
+    display: none;
+  }
+
+  .browser-dot {
+    cursor: default;
+  }
+
+  .browser-dot:hover {
+    transform: none;
+    filter: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   #mac-window,
   .window-stage,
